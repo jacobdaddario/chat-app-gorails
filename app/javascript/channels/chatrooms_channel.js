@@ -1,6 +1,6 @@
 import consumer from "./consumer"
 
-consumer.subscriptions.create("ChatroomsChannel", {
+export default consumer.subscriptions.create("ChatroomsChannel", {
   connected() {
     // Called when the subscription is ready for use on the server
   },
@@ -14,7 +14,11 @@ consumer.subscriptions.create("ChatroomsChannel", {
   	if (active_chatroom.length > 0) {
   		active_chatroom.append(data.message);
 	  } else {
-	  	$(`[data-behavior='chatroom-link'][data-chatroom-id='${data.chatroom_id}']`).css("font-weight", 'bold')
+	  	$(`[data-behavior='chatroom-link'][data-chatroom-id='${data.chatroom_id}']`).css("font-weight", 'bold');
 	  };
+  },
+
+  send_message(chatroom_id, message) {
+    this.perform("send_message", {chatroom_id: chatroom_id, message: message})
   }
 });
