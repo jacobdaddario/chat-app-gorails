@@ -3,11 +3,12 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-require("@rails/ujs").start()
-require("@rails/activestorage").start()
-require("turbolinks").start()
-require("channels")
-require("chatrooms")
+require("@rails/ujs").start();
+require("@rails/activestorage").start();
+require("turbolinks").start();
+require("channels");
+require("chatrooms");
+require("notifications");
 
 import "bootstrap";
 import "../stylesheets/application";
